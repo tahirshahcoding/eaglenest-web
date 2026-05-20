@@ -1,75 +1,85 @@
 import NeuralNetwork from "@/components/3d/NeuralNetwork";
 import Navbar from "@/components/layout/Navbar";
-import Link from "next/link"; // <--- 1. Import Link
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="relative w-full min-h-screen font-sans selection:bg-cyan-500/30 overflow-hidden">
-      
-      {/* 1. Navbar */}
+    <main className="relative w-full min-h-screen font-sans selection:bg-[#7978E9]/20 overflow-hidden">
+
+      {/* Navbar */}
       <Navbar />
 
-      {/* 2. Background */}
+      {/* Light Background */}
       <NeuralNetwork />
 
-      {/* 3. Hero Content */}
+      {/* Hero Content */}
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 text-center pointer-events-none">
-        
         <div className="flex flex-col items-center justify-center mt-[-5vh] animate-fade-in-up">
-          
+
           {/* BADGE */}
-          <div className="mb-8 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/5 border border-blue-500/10 backdrop-blur-md pointer-events-auto hover:bg-blue-500/10 transition-colors cursor-default">
+          <div className="mb-8 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#4B49AC]/8 border border-[#4B49AC]/15 backdrop-blur-sm pointer-events-auto hover:bg-[#4B49AC]/12 transition-colors cursor-default">
             <span className="relative flex h-1.5 w-1.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-cyan-500"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#7978E9] opacity-60" />
+              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#4B49AC]" />
             </span>
-            <span className="text-[10px] font-medium text-cyan-200/70 tracking-[0.25em] uppercase font-outfit">
+            <span className="text-[10px] font-bold text-[#4B49AC] tracking-[0.25em] uppercase font-outfit">
               Open to Work
             </span>
           </div>
 
-          {/* MAIN HEADLINE */}
+          {/* HEADLINE */}
           <div className="relative mb-6">
-            <h1 className="text-[10vw] md:text-[7rem] leading-[0.9] tracking-tighter font-outfit select-none drop-shadow-2xl text-white">
-              <span className="font-light opacity-90 block md:inline">INTELLIGENCE</span>
+            <h1 className="text-[10vw] md:text-[7rem] leading-[0.9] tracking-tighter font-outfit select-none drop-shadow-sm text-[#1a1633]">
+              <span className="font-light opacity-80 block md:inline">INTELLIGENCE</span>
               <span className="hidden md:inline"> </span>
-              <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 animate-gradient-x block md:inline">
+              {/* Skydash gradient */}
+              <span className="font-black text-transparent bg-clip-text bg-gradient-to-r from-[#4B49AC] via-[#7978E9] to-[#98BDFF] block md:inline">
                 REDEFINED
               </span>
             </h1>
-            
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[60%] bg-blue-500/20 blur-[100px] -z-10 rounded-full opacity-40 pointer-events-none" />
+            {/* Soft glow behind gradient text */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-white/80 blur-[90px] -z-10 rounded-full pointer-events-none" />
           </div>
 
           {/* SUBTEXT */}
           <div className="max-w-xl mx-auto mb-10 pointer-events-auto">
-            <p className="text-slate-400 text-base md:text-lg font-light leading-relaxed tracking-wide">
-              <strong className="text-slate-200 font-medium">EagleNest Creations</strong> engineers the neural architecture of tomorrow. 
+            <p className="text-[#4B49AC]/60 text-base md:text-lg font-light leading-relaxed tracking-wide">
+              <strong className="text-[#1a1633] font-semibold">EagleNest Creations</strong> engineers the neural architecture of tomorrow.
               We turn complex AI concepts into elegant digital reality.
             </p>
           </div>
 
-          {/* --- UPDATED BUTTONS WITH LINKS --- */}
-          <div className="flex flex-col sm:flex-row gap-5 pointer-events-auto">
-            
-            {/* 1. Explore Solutions -> Goes to /services */}
-            <Link 
+          {/* BUTTONS */}
+          <div className="flex flex-col sm:flex-row gap-4 pointer-events-auto">
+            <Link
               href="/services"
-              className="px-8 py-3.5 bg-white text-black rounded-full font-semibold text-sm tracking-wide hover:scale-105 transition-all duration-300 shadow-[0_0_30px_-10px_rgba(255,255,255,0.3)]"
+              className="px-8 py-3.5 bg-gradient-to-r from-[#4B49AC] to-[#7978E9] text-white rounded-full font-bold text-sm tracking-wide hover:scale-105 hover:shadow-[0_8px_30px_rgba(75,73,172,0.35)] transition-all duration-300"
             >
               Explore Solutions
             </Link>
-            
-            {/* 2. Our Process -> Goes to /about */}
-            <Link 
+            <Link
               href="/about"
-              className="group px-8 py-3.5 bg-transparent border border-white/10 text-white rounded-full font-medium text-sm tracking-wide hover:bg-white/5 hover:border-white/20 transition-all backdrop-blur-md flex items-center justify-center gap-2"
+              className="group px-8 py-3.5 bg-white border border-[#4B49AC]/20 text-[#4B49AC] rounded-full font-semibold text-sm tracking-wide hover:bg-[#4B49AC]/5 hover:border-[#4B49AC]/40 transition-all flex items-center justify-center gap-2 shadow-sm"
             >
               <span>Our Process</span>
-              <svg className="w-4 h-4 text-slate-400 group-hover:text-white group-hover:translate-x-1 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </Link>
+          </div>
+
+          {/* STAT PILLS */}
+          <div className="flex flex-wrap justify-center gap-3 mt-14 pointer-events-auto">
+            {[
+              { label: "Projects Delivered", value: "50+" },
+              { label: "Client Satisfaction", value: "99%" },
+              { label: "AI Models Built", value: "12+" },
+            ].map((s) => (
+              <div key={s.label} className="flex items-center gap-2 px-4 py-2 bg-white/70 backdrop-blur-sm rounded-full border border-[#7978E9]/15 shadow-sm">
+                <span className="text-base font-black text-[#4B49AC]">{s.value}</span>
+                <span className="text-xs text-[#4B49AC]/50 font-medium">{s.label}</span>
+              </div>
+            ))}
           </div>
 
         </div>
