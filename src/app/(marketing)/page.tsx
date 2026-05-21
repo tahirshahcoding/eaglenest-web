@@ -52,10 +52,10 @@ export default function Home() {
           {/* BUTTONS */}
           <div className="flex flex-col sm:flex-row gap-4 pointer-events-auto">
             <Link
-              href="/services"
+              href="https://eaglenestportal.vercel.app"
               className="px-8 py-3.5 bg-gradient-to-r from-[#4B49AC] to-[#7978E9] text-white rounded-full font-bold text-sm tracking-wide hover:scale-105 hover:shadow-[0_8px_30px_rgba(75,73,172,0.35)] transition-all duration-300"
             >
-              Explore Solutions
+              Client Portal
             </Link>
             <Link
               href="/about"
