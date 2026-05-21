@@ -57,7 +57,7 @@ export default function Navbar() {
         {/* CTA BUTTONS */}
         <div className="hidden md:flex items-center gap-3">
           <Link
-            href="/client-portal"
+            href="https://eaglenestportal.vercel.app"
             className="px-5 py-2.5 rounded-full border border-[#4B49AC]/20 text-[#4B49AC] text-xs font-bold tracking-[0.15em] uppercase hover:bg-[#4B49AC]/5 transition-all duration-300"
           >
             Client Portal
@@ -101,7 +101,7 @@ export default function Navbar() {
             ))}
             <div className="flex flex-col gap-2 mt-2">
               <Link
-                href="/client-portal"
+                href="https://eaglenestportal.vercel.app"
                 onClick={() => setIsOpen(false)}
                 className="w-full py-3 bg-white border border-[#4B49AC]/20 text-[#4B49AC] text-center font-bold uppercase tracking-widest rounded-xl hover:bg-[#4B49AC]/5 transition-all text-sm font-semibold"
               >
