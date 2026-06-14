@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Outfit, Comfortaa } from "next/font/google"; // Added Comfortaa
 import "./globals.css";
+import AIPopup from "@/components/ui/AIPopup";
 
 // 1. Primary Tech Font (Body text, UI)
 const outfit = Outfit({ 
@@ -31,6 +32,7 @@ export default function RootLayout({
       {/* Load both font variables */}
       <body className={`${outfit.variable} ${comfortaa.variable} font-sans bg-[#F4F5FF] text-[#1a1633] antialiased`} suppressHydrationWarning>
         {children}
+        <AIPopup />
       </body>
     </html>
   );

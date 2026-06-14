@@ -60,14 +60,14 @@ export default function Vision() {
       <Navbar />
 
       {/* ---- DYNAMIC BACKGROUND ---- */}
-      <div className="fixed inset-0 z-0 pointer-events-none transition-all duration-1000">
+      <div className="fixed inset-0 z-0 pointer-events-none transition-all duration-1000 bg-container-fixed">
         <div className="absolute inset-0 bg-[#F4F5FF]" />
         <div className="absolute top-[5%] left-[-5%] w-[65vw] h-[65vw] rounded-full opacity-20 animate-pulse-slow transition-all duration-1000"
-          style={{ background: `radial-gradient(circle, ${activeTheme.from} 0%, transparent 65%)` }} />
+          style={{ background: `radial-gradient(circle, ${activeTheme.from} 0%, transparent 65%)`, transform: 'translateZ(0)' }} />
         <div className="absolute bottom-[5%] right-[-5%] w-[55vw] h-[55vw] rounded-full opacity-15 animate-pulse-slow transition-all duration-1000"
-          style={{ background: `radial-gradient(circle, ${activeTheme.to} 0%, transparent 65%)` }} />
+          style={{ background: `radial-gradient(circle, ${activeTheme.to} 0%, transparent 65%)`, transform: 'translateZ(0)' }} />
         <div className="absolute inset-0 opacity-[0.05]"
-          style={{ backgroundImage: 'radial-gradient(circle, #4B49AC 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+          style={{ backgroundImage: 'radial-gradient(circle, #4B49AC 1px, transparent 1px)', backgroundSize: '40px 40px', transform: 'translateZ(0)' }} />
       </div>
 
       {/* ---- CONTENT ---- */}

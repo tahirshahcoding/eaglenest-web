@@ -18,16 +18,16 @@ export default function AboutUs() {
       <Navbar />
 
       {/* ---- PAGE BACKGROUND ---- */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
+      <div className="fixed inset-0 z-0 pointer-events-none bg-container-fixed">
         <div className="absolute inset-0 bg-[#F4F5FF]" />
-        {/* Color blobs */}
+        {/* Color blobs — GPU-promoted */}
         <div className="absolute top-[-10%] right-[-10%] w-[55vw] h-[55vw] rounded-full opacity-25 animate-pulse-slow"
-          style={{ background: 'radial-gradient(circle, #98BDFF 0%, transparent 70%)' }} />
+          style={{ background: 'radial-gradient(circle, #98BDFF 0%, transparent 70%)', transform: 'translateZ(0)' }} />
         <div className="absolute bottom-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full opacity-15 animate-pulse-slow"
-          style={{ background: 'radial-gradient(circle, #7978E9 0%, transparent 70%)' }} />
-        {/* Dot grid */}
+          style={{ background: 'radial-gradient(circle, #7978E9 0%, transparent 70%)', transform: 'translateZ(0)' }} />
+        {/* Dot grid — static */}
         <div className="absolute inset-0 opacity-[0.05]"
-          style={{ backgroundImage: 'radial-gradient(circle, #4B49AC 1px, transparent 1px)', backgroundSize: '36px 36px' }} />
+          style={{ backgroundImage: 'radial-gradient(circle, #4B49AC 1px, transparent 1px)', backgroundSize: '36px 36px', transform: 'translateZ(0)' }} />
       </div>
 
       {/* ---- CONTENT ---- */}

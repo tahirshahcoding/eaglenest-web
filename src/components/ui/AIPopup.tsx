@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageSquare, Send, X, Sparkles, RefreshCw, AlertCircle, HelpCircle } from "lucide-react";
+import Robot3D from "./Robot3D";
 
 interface Message {
   sender: "user" | "ai";
@@ -317,32 +318,32 @@ export default function AIPopup() {
             setShowTooltip(false);
           }}
           className={`
-            relative h-14 w-14 rounded-full flex items-center justify-center text-white shadow-lg cursor-pointer transition-all duration-300 pointer-events-auto hover:scale-105 active:scale-95
+            relative flex items-center justify-center cursor-pointer transition-all duration-300 pointer-events-auto hover:scale-105 active:scale-95
             ${isOpen 
-              ? "bg-[#1a1633] shadow-md rotate-90" 
-              : "bg-gradient-to-tr from-[#4B49AC] via-[#7978E9] to-[#98BDFF] hover:shadow-[0_8px_30px_rgba(75,73,172,0.4)]"
+              ? "h-14 w-14 rounded-full bg-[#1a1633] text-white shadow-md rotate-90" 
+              : "h-32 w-32 bg-transparent"
             }
           `}
         >
-          {isOpen ? (
-            <X className="w-6 h-6 text-white" />
-          ) : (
-            <div className="relative">
-              <MessageSquare className="w-6 h-6 animate-pulse-slow" />
-              {/* Online Pulse Indicator */}
-              {status === "active" && (
-                <span className="absolute -top-1 -right-1 flex h-2.5 w-2.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-                </span>
-              )}
-              {status === "sleeping" && (
-                <span className="absolute -top-1 -right-1 flex h-2.5 w-2.5">
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-500 animate-pulse"></span>
-                </span>
-              )}
-            </div>
-          )}
+          {/* Close Icon (visible when open) */}
+          <X className={`w-6 h-6 text-white transition-all duration-300 ${isOpen ? "opacity-100 scale-100" : "opacity-0 scale-0 absolute pointer-events-none"}`} />
+
+          {/* Robot (stays mounted to prevent animation freezing on toggle) */}
+          <div className={`relative w-full h-full flex items-center justify-center transition-all duration-300 ${isOpen ? "opacity-0 scale-0 absolute pointer-events-none" : "opacity-100 scale-100"}`}>
+            <Robot3D className="w-full h-full" />
+            {/* Online Pulse Indicator */}
+            {status === "active" && (
+              <span className="absolute top-5 right-5 flex h-3.5 w-3.5 z-10">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-emerald-500"></span>
+              </span>
+            )}
+            {status === "sleeping" && (
+              <span className="absolute top-5 right-5 flex h-3.5 w-3.5 z-10">
+                <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-amber-500 animate-pulse"></span>
+              </span>
+            )}
+          </div>
         </button>
       </div>
 
@@ -354,11 +355,9 @@ export default function AIPopup() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.92, y: 20 }}
             transition={{ type: "spring", stiffness: 350, damping: 28 }}
-            className="fixed bottom-24 right-6 z-50 w-[390px] max-w-[calc(100vw-2rem)] h-[550px] max-h-[calc(100vh-8rem)] bg-white/90 backdrop-blur-xl border border-[#7978E9]/15 shadow-[0_20px_50px_rgba(75,73,172,0.18)] rounded-3xl overflow-hidden flex flex-col font-sans"
+            className="fixed bottom-24 right-6 z-50 w-[390px] max-w-[calc(100vw-2rem)] h-[550px] max-h-[calc(100vh-8rem)] bg-white/95 backdrop-blur-md border border-[#7978E9]/15 shadow-[0_20px_50px_rgba(75,73,172,0.18)] rounded-3xl overflow-hidden flex flex-col font-sans"
           >
-            {/* Ambient background glow inside the popup */}
-            <div className="absolute top-[-20%] left-[-20%] w-[60%] h-[60%] bg-[#98BDFF]/10 blur-[80px] rounded-full pointer-events-none" />
-            <div className="absolute bottom-[-20%] right-[-20%] w-[60%] h-[60%] bg-[#7978E9]/10 blur-[80px] rounded-full pointer-events-none" />
+            {/* Ambient glow removed for performance — bg-white/95 provides sufficient contrast */}
 
             {/* HEADER */}
             <header className="relative z-10 px-5 py-4 border-b border-[#4B49AC]/8 flex items-center justify-between bg-white/40 backdrop-blur-sm">
