@@ -186,12 +186,15 @@ export default function AIPopup() {
             // Decode escaped newlines and backslashes
             const decodedContent = content.replace(/\\n/g, "\n").replace(/\\\\/g, "\\");
 
-            // Append chunk to the last AI message
+            // Append chunk to the last AI message without mutating state
             setMessages((prev) => {
               const updated = [...prev];
-              const lastMsg = updated[updated.length - 1];
-              if (lastMsg && lastMsg.sender === "ai") {
-                lastMsg.text += decodedContent;
+              const lastMsgIndex = updated.length - 1;
+              if (lastMsgIndex >= 0 && updated[lastMsgIndex].sender === "ai") {
+                updated[lastMsgIndex] = {
+                  ...updated[lastMsgIndex],
+                  text: updated[lastMsgIndex].text + decodedContent
+                };
               }
               return updated;
             });
