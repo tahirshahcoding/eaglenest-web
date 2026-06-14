@@ -281,7 +281,7 @@ export default function AIPopup() {
   return (
     <>
       {/* 1. FLOATING ACTION BUTTON */}
-      <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3 pointer-events-none">
+      <div className="fixed bottom-2 right-2 md:bottom-6 md:right-6 z-50 flex flex-col items-end gap-3 pointer-events-none">
         
         {/* Hover Tooltip/Badge */}
         <AnimatePresence>
@@ -320,27 +320,27 @@ export default function AIPopup() {
           className={`
             relative flex items-center justify-center cursor-pointer transition-all duration-300 pointer-events-auto hover:scale-105 active:scale-95
             ${isOpen 
-              ? "h-14 w-14 rounded-full bg-[#1a1633] text-white shadow-md rotate-90" 
-              : "h-32 w-32 bg-transparent"
+              ? "h-12 w-12 md:h-14 md:w-14 rounded-full bg-[#1a1633] text-white shadow-md rotate-90" 
+              : "h-20 w-20 md:h-32 md:w-32 bg-transparent"
             }
           `}
         >
           {/* Close Icon (visible when open) */}
-          <X className={`w-6 h-6 text-white transition-all duration-300 ${isOpen ? "opacity-100 scale-100" : "opacity-0 scale-0 absolute pointer-events-none"}`} />
+          <X className={`w-5 h-5 md:w-6 md:h-6 text-white transition-all duration-300 ${isOpen ? "opacity-100 scale-100" : "opacity-0 scale-0 absolute pointer-events-none"}`} />
 
           {/* Robot (stays mounted to prevent animation freezing on toggle) */}
           <div className={`relative w-full h-full flex items-center justify-center transition-all duration-300 ${isOpen ? "opacity-0 scale-0 absolute pointer-events-none" : "opacity-100 scale-100"}`}>
             <Robot3D className="w-full h-full" />
             {/* Online Pulse Indicator */}
             {status === "active" && (
-              <span className="absolute top-5 right-5 flex h-3.5 w-3.5 z-10">
+              <span className="absolute top-3 right-3 md:top-5 md:right-5 flex h-3 w-3 md:h-3.5 md:w-3.5 z-10">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-emerald-500"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 md:h-3.5 md:w-3.5 bg-emerald-500"></span>
               </span>
             )}
             {status === "sleeping" && (
-              <span className="absolute top-5 right-5 flex h-3.5 w-3.5 z-10">
-                <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-amber-500 animate-pulse"></span>
+              <span className="absolute top-3 right-3 md:top-5 md:right-5 flex h-3 w-3 md:h-3.5 md:w-3.5 z-10">
+                <span className="relative inline-flex rounded-full h-3 w-3 md:h-3.5 md:w-3.5 bg-amber-500 animate-pulse"></span>
               </span>
             )}
           </div>
